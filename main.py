@@ -55,7 +55,7 @@ this program is raidtool & sendtool
 [3]report
 {Fore.RESET}""")
 
-choice = input(f"{b+Fore.BLUE}1 or 2:{Fore.RESET}")
+choice = input(f"{b+Fore.BLUE}1/2/3:{Fore.RESET}")
 
 
 if choice == '1':
