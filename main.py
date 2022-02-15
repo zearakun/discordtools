@@ -64,24 +64,23 @@ if choice == '1':
     len = len(serverinvite)
     inviteword = subtraction(len,19)
     invite = serverinvite[19:inviteword]
-    userToken = open("tokens.txt").read().splitlines()
-    token = userToken.readlines()
+    token = open('tokens.txt').readlines()
     tokens = random.choice(token)
     headers = {'Authorization': tokens} 
     r = requests.get(f'https://discord.com/api/v9/invites/{invite}', headers=headers)
-
+    if r.status_code == 200:
+     print("success")
+    elif r.status_code == 404:
+     print("id or channel is different.")
 
 if choice == '2':
-  tokens
+ while True:
   guild = input(f"{b+Fore.BLUE}guildid:{Fore.RESET}")
-  userToken = open("tokens.txt").read().splitlines()
-  token = userToken.readlines()
+  tokens = open('tokens.txt').readlines()
   tokens = random.choice(token)
-  sendmessages = open("messages.txt").read().splitlines()
-  message = sendmessages.readlines()
+  message = open('messages.txt').readlines()
   messages = f"{random.choice(message)}{random.choice(range(10000000000,99999999999))}"
-  sendchannels = open("channels.txt").read().splitlines()
-  channel = sendchannels.readlines()
+  channel = open('channels.txt').readlines()
   channels = random.choice(channel)
   headers = {'Authorization': tokens, 'Content-Type':  'application/json', "content": messages}
   r = requests.get(f'https://discord.com/api/v9/channels/{guild}/{channels}', headers=headers)
@@ -92,8 +91,7 @@ if choice == '2':
 
 
 if choice == '3':
-    userToken = open("tokens.txt").read().splitlines()
-    tokens = userToken.readlines()
+    tokens = open('tokens.txt').readlines()
     token = random.choice(token)
     guildId = input(f"{b+Fore.BLUE} Server ID: ")
     channelId = input(f"{b+Fore.BLUE}Channel ID: ")
