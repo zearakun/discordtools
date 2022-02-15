@@ -67,7 +67,7 @@ if choice == '1':
     token = open('tokens.txt').readlines()
     tokens = random.choice(token)
     headers = {'Authorization': tokens} 
-    r = requests.get(f'https://discord.com/api/v9/invites/{invite}', headers=headers)
+    r = requests.get(f'https://discord.com/api/v9/invite/{invite}', headers=headers)
     if r.status_code == 200:
      print("success")
     elif r.status_code == 404:
